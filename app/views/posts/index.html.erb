@@ -1,25 +1,40 @@
-<div class="row">
-    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-      <% @posts.each do |post| %>
-        <div class="post-preview">
-            <a href="post.html">
-                <h2 class="post-title">
-                    <%= post.title %>
-                </h2>
-                <h3 class="post-subtitle">
-                    <%= post.content %>
-                </h3>
-            </a>
-            <p class="post-meta">作者 <a href="#"><%= post.author %></a> <%= post.published_at %></p>
-            <br>
-            <% post.categories.each do |category|%>
-              <p class="post-meta"><%= category.name %></p>
-            <% end %>
-        <hr>
-      <% end %>
-        <!-- Pager -->
-        <div class="clearfix">
-            <a class="btn btn-secondary float-right" href="#">更多&rarr;</a>
+<header class="intro-header" style="background-image: url(<%= asset_path 'home-bg.jpg' %>)">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <div class="site-heading">
+                    <h1>Clean Blog</h1>
+                    <span class="subheading">林启宁的博客</span>
+                </div>
+            </div>
         </div>
     </div>
+</header>
+<div class="container">
+  <div class="row">
+      <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+          <% @posts.each do |post| %>
+          <div class="post-preview">
+              <a href="post.html">
+                  <h2 class="post-title">
+                      <%= post.title %>
+                  </h2>
+                  <h3 class="post-subtitle">
+                      <%= post.content %>
+                  </h3>
+              </a>
+              <p class="post-meta">作者 <a href="#"><%= post.author %></a> <%= post.published_at %></p>
+              <br>
+              <% post.categories.each do |category|%>
+                <p class="post-meta"><%= category.name %></p>
+              <% end %>
+          <hr>
+        <% end %>
+          <!-- Pager -->
+          <div class="clearfix">
+              <a class="btn btn-secondary float-right" href="#">更多&rarr;</a>
+          </div>
+      </div>
+  </div>
 </div>
