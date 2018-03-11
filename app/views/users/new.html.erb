@@ -11,18 +11,33 @@
 			<div class="signin-form profile">
 				<h3>注册新用户</h3>
 
-				<div class="login-form">
+				<!-- <div class="login-form">
 					<form action="#" method="post">
-						<input type="text" name="email" placeholder="邮箱" required="">
-						<input type="text" name="name" placeholder="用户名" required="">
-						<input type="password" name="password" placeholder="密码" required="">
-						<input type="password" name="password" placeholder="确认密码" required="">
+						<input type="text" name="email" placeholder="邮箱" required="true">
+						<input type="text" name="nickname" placeholder="用户名" required="true">
+						<input type="password" name="password" placeholder="密码" required="true">
+						<input type="password" name="password_confirmation" placeholder="确认密码" required="true">
 						<input type="submit" value="注册">
 					</form>
-				</div>
-				<p><a href="#"> 用户条款</a></p>
+				</div> -->
+				<div class="login-form">
+				<%= form_for @user, :url=>{:action=>'create'} do |f| %>
+				<%= f.text_field :email, :placeholder=> '邮箱' %>
+				<%= f.text_field :nickname ,:placeholder=> '用户名'%>
+				<%= f.password_field :password,:placeholder=> '密码' %>
+				<%= f.password_field :password_confirmation,:placeholder=> '确认密码' %>
+				<%= f.submit '注册' %>
+				<% end %>
+			</div>
+				<p><%= link_to "登录",sign_in_path %></p>
 			</div>
 		</div>
 		<div class="clear"></div>
 		<!--//signin-form-->
 	</div>
+	<style>
+	body {
+			font-family: 'Jura', sans-serif;
+			background:#0a4981;
+	}
+	</style>

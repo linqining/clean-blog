@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
+#  protect_from_forgery with: :exception
+
   skip_before_action :authenticate, only:[:new,:create]
+  skip_before_action :verify_authenticity_token, only: [:new,:create]
+
   def new
     @user=User.new
   end
