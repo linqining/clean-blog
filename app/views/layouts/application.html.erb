@@ -39,12 +39,15 @@
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="#">主页</a>
                     </li>
+                    <% Category.all.each do |category| %>
+                      <li class="nav-item">
+                          <%= link_to category.name, posts_path(category: category.id),class: "nav-link page-scroll" %>
+                      </li>
+                    <% end %>
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="#">关于</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#">实例</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="#">联系我们</a>
                     </li>
