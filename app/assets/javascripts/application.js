@@ -15,6 +15,9 @@
 //= require js/bootstrap
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+//= require dataTables/jquery.dataTables
+//= require dataTables/extras/dataTables.responsive
+//= require bootstrap-wysihtml5
 //= require clean-blog.min
 //= require rails-ujs
 //= require turbolinks
@@ -22,6 +25,7 @@
 
 $(document).ready(function(){
   $('.datatable').DataTable({
+    responsive: true
     // ajax: ...,
     // autoWidth: false,
     // pagingType: 'full_numbers',
@@ -31,5 +35,8 @@ $(document).ready(function(){
     // Optional, if you want full pagination controls.
     // Check dataTables documentation to learn more about available options.
     // http://datatables.net/reference/option/pagingType
+  });
+  $('.wysihtml5').each(function(i, elem) {
+    $(elem).wysihtml5();
   });
 });

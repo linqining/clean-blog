@@ -13,8 +13,11 @@
 
  *= require_tree .
 *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+*= require dataTables/extras/dataTables.responsive
+*= require bootstrap-wysihtml5
  *= require_self
  */
+ @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "css/bootstrap";
  @import "font-awesome";

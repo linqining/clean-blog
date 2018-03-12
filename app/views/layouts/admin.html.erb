@@ -26,36 +26,43 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <%= link_to "主页",root_path,class: "nav-link" %>
+                        <a class="nav-link page-scroll" href="/admin">博客列表</a>
                     </li>
-                    <% Category.all.each do |category| %>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="/admin/posts/new">创建博客</a>
+                    </li>
+                    <% if sign_in? %>
                       <li class="nav-item">
-                          <%= link_to category.name, posts_path(category: category.id),class: "nav-link page-scroll" %>
+                        <%= link_to "退出", admin_sign_out_path, class: "nav-link page-scroll" %>
+                      </li>
+                    <% else %>
+                      <li class="nav-item">
+                        <%= link_to "登录", admin_sign_up_path, class: "nav-link page-scroll"%>
                       </li>
                     <% end %>
-                    <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#">关于</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#">联系我们</a>
-                    </li>
-                    <li class="nav-item">
-                        <%= link_to "注册",admin_sign_up_path,class: "nav-link" %>
-                    </li>
-
-
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Page Header -->
-
+    <header class="intro-header" style="background-image: url(<%= asset_path 'home-bg.jpg' %>)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                    <div class="site-heading">
+                        <h1>Clean Blog</h1>
+                        <span class="subheading">林启宁的博客</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
     <!-- Main Content -->
-
+<div class="container">
         <%= yield %>
+</div>
 
 
     <hr>

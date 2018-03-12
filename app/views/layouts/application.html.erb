@@ -40,6 +40,15 @@
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="#">联系我们</a>
                     </li>
+                    <% if sign_in? %>
+                      <li class="nav-item">
+                        <%= link_to "退出", admin_sign_out_path, class: "nav-link page-scroll" %>
+                      </li>
+                    <% else %>
+                      <li class="nav-item">
+                        <%= link_to "登录", admin_sign_up_path, class: "nav-link page-scroll"%>
+                      </li>
+                    <% end %>
                 </ul>
             </div>
         </div>

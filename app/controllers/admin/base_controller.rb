@@ -3,7 +3,7 @@ class Admin::BaseController < ActionController::Base
   before_action :authenticate
   helper_method :sign_in?, :current_user
 
-#  layout "admin"
+ layout "admin"
 
   def sign_in?
     !!session[:user_id]
@@ -23,7 +23,7 @@ class Admin::BaseController < ActionController::Base
 
   def authenticate
     unless sign_in?
-      redirect_to sign_in_path
+      redirect_to admin_sign_in_path
     end
   end
 end

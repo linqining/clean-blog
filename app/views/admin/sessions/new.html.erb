@@ -11,14 +11,6 @@
 				<h3>登录</h3>
 
 				<div class="login-form">
-					<!-- <form action="#" method="post">
-						<input type="text" name="email" placeholder="邮箱" required="ture">
-						<input type="password" name="password" placeholder="密码" required="true">
-						<div class="tp">
-							<input type="submit" value="登录">
-							<%= link_to sign_in_path %>
-						</div>
-					</form> -->
 					<% if flash[:login_error] %>
 					  <p><%= flash[:login_error] %></p>
 					<% end %>
@@ -29,7 +21,7 @@
 					<% end %>
 				</div>
 
-				<p><%= link_to "注册新用户",sign_up_path %></p>
+				<p><%= link_to "注册新用户",admin_sign_up_path %></p>
 			</div>
 		</div>
 
